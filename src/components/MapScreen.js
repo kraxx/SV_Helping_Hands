@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { View, StyleSheet } from 'react-native';
+import { MapView } from 'expo';
 import { connect } from 'react-redux';
 import MapMarkers from './MapMarkers';
+import SearchBox from  './SearchBox';
+import MapFooter from './MapFooter';
+import NavButton from './MapNavButton';
 
 const getVisibleMarkers = (markers, filters) => {
   var filterMarkers = markers;
@@ -16,13 +21,33 @@ const getVisibleMarkers = (markers, filters) => {
 class MapScreenView extends Component {
   render() {
     const { markers, filters } = this.props;
-    return <MapMarkers markers={getVisibleMarkers(markers,filters)}/>;
+    return (
+        <View style={{ flex: 1 }}>
+            <MapMarkers markers={getVisibleMarkers(markers, filters)} />
+            <View style={styles.topBar}>
+                <SearchBox />
+                <NavButton route={this.props.navigation}/>
+            </View>
+            <MapFooter />
+        </View>
+    );
   }
 }
 
 const mapStateToProps = state => ({
   markers: state.homeApp.markers,
   filters: state.settings.selected
+});
+
+const styles = StyleSheet.create({
+    topBar: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        top: 10,
+        left: 10,
+    }
 });
 
 const MapScreen = connect(mapStateToProps)(MapScreenView);

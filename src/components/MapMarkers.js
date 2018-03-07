@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
 });
 
 const MapMarkers = ({markers}) => (
-  <MapView style={styles.map}
+  <MapView
+    style={{ flex: 1 }}
     initialRegion={{
       latitude: 37.548271,
       longitude: -121.988571,
