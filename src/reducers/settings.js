@@ -1,11 +1,22 @@
 const initialState = {
-    selected: [{
-        key: "Food",
-        value: true,
-    },{
-        key: "Clothing",
-        value: true,
-    }],
+    selected: [
+        {
+            key: "Food",
+            value: true,
+        },
+        {
+            key: "Clothing",
+            value: true,
+        },
+        {
+            key: "Health",
+            value: true,
+        },
+        {
+            key: "Shelter",
+            value: true,
+        },
+    ],
 }
 
 function settings(state = initialState, action) {
