@@ -44,25 +44,32 @@ const getVisibleMarkers = (markers, filters) => {
   return filterMarkers
 }
 
+class ListItem extends Component {
+    render() {
+        return(
+            <View style={style.listItemContainer}>
+                <IconSquare type={this.props.item.type} />
+                <View style={style.listText} >
+                    <Text style={style.listTextTitle}>{this.props.item.title}</Text>
+                    <Text>{this.props.item.description}</Text>
+                </View>
+            </View>
+        )
+    }
+}
+
 class MapListView extends Component {
   render() {
     const { markers, filters } = this.props
     return (
-    <ScrollView>
+    <View>
         <FlatList
             data={getVisibleMarkers(markers, filters)}
             renderItem={
-                ({item}) =>
-                <View style={style.listItemContainer}>
-                    <IconSquare type={item.type} />
-                    <View style={style.listText} >
-                        <Text style={style.listTextTitle}>{item.title}</Text>
-                        <Text>{item.description}</Text>
-                    </View>
-                </View>
+                ({item}) => <ListItem item={item} />
             }
         />
-    </ScrollView>
+    </View>
     );
   }
 }
