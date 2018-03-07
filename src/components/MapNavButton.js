@@ -6,8 +6,8 @@ export default class NavButton extends Component {
     render() {
         return (
             <View>
-                <TouchableOpacity onPress={() => this.props.route.navigate('Settings')}>
-                    <MaterialIcons name='settings-input-component' size={20} />
+                <TouchableOpacity onPress={() => this.props.route.navigate(this.props.dest)}>
+                    <MaterialIcons name={this.props.icon} size={20} />
                 </TouchableOpacity>
             </View>
         );

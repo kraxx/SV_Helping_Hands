@@ -26,7 +26,8 @@ class MapScreenView extends Component {
             <MapMarkers markers={getVisibleMarkers(markers, filters)} />
             <View style={styles.topBar}>
                 <SearchBox />
-                <NavButton route={this.props.navigation}/>
+                <NavButton route={this.props.navigation} icon={'view-list'} dest={'List'}/>
+                <NavButton route={this.props.navigation} icon={'filter-list'} dest={'Settings'}/>
             </View>
             <MapFooter />
         </View>
