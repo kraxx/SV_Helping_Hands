@@ -6,17 +6,7 @@ import MapMarkers from './MapMarkers';
 import SearchBox from  './SearchBox';
 import MapFooter from './MapFooter';
 import NavButton from './MapNavButton';
-
-const getVisibleMarkers = (markers, filters) => {
-  var filterMarkers = markers;
-  for (var filter in filters) {
-    console.log(filters[filter])
-    if (!filters[filter].value) {
-      filterMarkers = filterMarkers.filter(f => f.type == filters[filter].key)
-    }
-  }
-  return filterMarkers
-}
+import getVisibleMarkers from '../lib/MapMarkerFilter'
 
 class MapScreenView extends Component {
   render() {
