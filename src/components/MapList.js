@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { FlatList, View, Text, Image, ScrollView, StyleSheet } from 'react-native'
 import icons from './Resources'
-import getVisibleMarkers from '../lib/MapMarkerFilter'
+import getVisibleMarkers from '../lib/getMarkers';
 
 const style = StyleSheet.create({
     listItemContainer: {
@@ -34,7 +34,7 @@ class IconSquare extends Component {
     }
 }
 
-class ListItem extends Component {
+export class ListItem extends Component {
     render() {
         return(
             <View style={style.listItemContainer}>
