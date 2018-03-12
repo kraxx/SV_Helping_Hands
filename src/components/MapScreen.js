@@ -7,7 +7,21 @@ import MapMarkers from './MapMarkers';
 import SearchBox from  './SearchBox';
 import MapFooter from './MapFooter';
 import NavButton from './MapNavButton';
+<<<<<<< HEAD
 import getVisibleMarkers from '../lib/getMarkers';
+=======
+
+const getVisibleMarkers = (markers, filters) => {
+  var filterMarkers = markers;
+  for (var filter in filters) {
+    console.log(filters[filter])
+    if (!filters[filter].value) {
+      filterMarkers = filterMarkers.filter(f => f.type == filters[filter].key)
+    }
+  }
+  return filterMarkers
+}
+>>>>>>> parent of 698e845... created lib folder with map marker filters
 
 class MapScreenView extends Component {
     constructor() {
