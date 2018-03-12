@@ -52,7 +52,8 @@ class IconCircle extends Component {
         this.state = { toggledOn: true }
     }
     _onPressButton = () => {
-        this.setState({ toggledOn: !this.state.toggledOn })
+        this.setState({ toggledOn: !this.state.toggledOn });
+        this.props.toggle();
     }
     render() {
         let toggledColor = this.state.toggledOn ? icons[this.props.type].color : 'pink'
@@ -77,7 +78,7 @@ class SettingsView extends Component {
         style={style.flatList}
         renderItem={({item}) =>
           // <SettingsRow item={item} onToggleSwitch={() => onToggleSwitch(item.key)}/>
-          <IconCircle type={item.key}/>
+          <IconCircle type={item.key} toggle={() => onToggleSwitch(item.key)}/>
         }
       />
     );

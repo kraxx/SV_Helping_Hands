@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { FlatList, View, Text, Image, ScrollView, StyleSheet } from 'react-native'
 import icons from './Resources'
+import getVisibleMarkers from '../lib/getMarkers';
 
 const style = StyleSheet.create({
     listItemContainer: {
@@ -33,18 +34,7 @@ class IconSquare extends Component {
     }
 }
 
-const getVisibleMarkers = (markers, filters) => {
-  var filterMarkers = markers
-  for (var filter in filters) {
-    console.log(filters[filter])
-    if (!filters[filter].value) {
-      filterMarkers = filterMarkers.filter(f => f.type == filters[filter].key)
-    }
-  }
-  return filterMarkers
-}
-
-class ListItem extends Component {
+export class ListItem extends Component {
     render() {
         return(
             <View style={style.listItemContainer}>
