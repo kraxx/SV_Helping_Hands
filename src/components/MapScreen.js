@@ -7,12 +7,6 @@ import MapMarkers from './MapMarkers';
 import SearchBox from  './SearchBox';
 import MapFooter from './MapFooter';
 import NavButton from './MapNavButton';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import getVisibleMarkers from '../lib/getMarkers';
-=======
-=======
->>>>>>> parent of 698e845... created lib folder with map marker filters
 
 const getVisibleMarkers = (markers, filters) => {
   var filterMarkers = markers;
@@ -24,10 +18,6 @@ const getVisibleMarkers = (markers, filters) => {
   }
   return filterMarkers
 }
-<<<<<<< HEAD
->>>>>>> parent of 698e845... created lib folder with map marker filters
-=======
->>>>>>> parent of 698e845... created lib folder with map marker filters
 
 class MapScreenView extends Component {
     constructor() {
