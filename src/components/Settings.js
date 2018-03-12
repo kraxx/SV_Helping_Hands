@@ -56,13 +56,14 @@ class IconCircle extends Component {
         this.props.toggle();
     }
     render() {
-        let toggledColor = this.state.toggledOn ? icons[this.props.type].color : 'pink'
-        let toggledBorder = this.state.toggledOn ? 3 : 1.5
+        const { item, onToggleSwitch } = this.props;
+        let toggledColor = item.value == true ? icons[item.key].color : 'pink'
+        let toggledBorder = item.value == true ? 3 : 1.5
         return (
             <TouchableOpacity 
             style={[style.gridItem, { backgroundColor: toggledColor, borderWidth: toggledBorder }]}
-            onPress={this._onPressButton}>
-                <Image style={style.listIcon} source={icons[this.props.type].image} />
+            onPress={onToggleSwitch}>
+                <Image style={style.listIcon} source={icons[item.key].image} />
             </TouchableOpacity>
         )
     }
