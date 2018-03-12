@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { FlatList, View, Text, Image, ScrollView, StyleSheet } from 'react-native'
 import icons from './Resources'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import getVisibleMarkers from '../lib/getMarkers';
+=======
+>>>>>>> parent of 698e845... created lib folder with map marker filters
 =======
 >>>>>>> parent of 698e845... created lib folder with map marker filters
 
@@ -38,8 +41,11 @@ class IconSquare extends Component {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export class ListItem extends Component {
 =======
+=======
+>>>>>>> parent of 698e845... created lib folder with map marker filters
 const getVisibleMarkers = (markers, filters) => {
   var filterMarkers = markers
   for (var filter in filters) {

@@ -53,8 +53,12 @@ class IconCircle extends Component {
     }
     _onPressButton = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.setState({ toggledOn: !this.state.toggledOn });
         this.props.toggle();
+=======
+        this.setState({ toggledOn: !this.state.toggledOn })
+>>>>>>> parent of 698e845... created lib folder with map marker filters
 =======
         this.setState({ toggledOn: !this.state.toggledOn })
 >>>>>>> parent of 698e845... created lib folder with map marker filters
@@ -83,7 +87,11 @@ class SettingsView extends Component {
         renderItem={({item}) =>
           // <SettingsRow item={item} onToggleSwitch={() => onToggleSwitch(item.key)}/>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <IconCircle type={item.key} toggle={() => onToggleSwitch(item.key)}/>
+=======
+          <IconCircle type={item.key}/>
+>>>>>>> parent of 698e845... created lib folder with map marker filters
 =======
           <IconCircle type={item.key}/>
 >>>>>>> parent of 698e845... created lib folder with map marker filters
