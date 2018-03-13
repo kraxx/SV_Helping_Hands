@@ -6,7 +6,7 @@ import Navigator from "./navigation";
 export default class AppNavigation extends Component {
   render() {
     return (
-      <Navigator/>
+      <Navigator />
     );
   }
 }
