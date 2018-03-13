@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
+import { ListItem } from './MapList';
+import getVisibleMarkers from '../lib/getMarkers';
 
 export default class MapFooter extends Component {
     constructor() {
@@ -15,10 +17,7 @@ export default class MapFooter extends Component {
 
     renderItem(item) {
         return (
-            <View style={styles.listItem}>
-                <FontAwesome name='bed' />
-                <Text>{item.key} Name of Place</Text>
-            </View>
+            <ListItem item={item} />
         );
     }
 
@@ -26,7 +25,7 @@ export default class MapFooter extends Component {
         return (
             <View style={styles.container}>
                 <FlatList
-                    data={[{key:'a'},{key:'b'},{key:'c'},{key:'d'}]}
+                    data={getVisibleMarkers(this.props.markers, this.props.filters)}
                     renderItem={({item}) => this.renderItem(item)}
                     ListHeaderComponent={<View style={{alignItems: 'center'}}><Entypo name='minus' size={20}/></View>}
                 />

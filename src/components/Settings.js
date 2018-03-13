@@ -47,15 +47,21 @@ const SettingsRow = ({item, onToggleSwitch}) => (
 );
 */
 class IconCircle extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { toggledOn: true }
+    }
+    _onPressButton = () => {
+        this.setState({ toggledOn: !this.state.toggledOn })
+    }
     render() {
-        const { item, onToggleSwitch } = this.props;
-        let toggledColor = item.value == true ? icons[item.key].color : 'pink'
-        let toggledBorder = item.value == true ? 3 : 1.5
+        let toggledColor = this.state.toggledOn ? icons[this.props.type].color : 'pink'
+        let toggledBorder = this.state.toggledOn ? 3 : 1.5
         return (
             <TouchableOpacity 
             style={[style.gridItem, { backgroundColor: toggledColor, borderWidth: toggledBorder }]}
-            onPress={onToggleSwitch}>
-                <Image style={style.listIcon} source={icons[item.key].image} />
+            onPress={this._onPressButton}>
+                <Image style={style.listIcon} source={icons[this.props.type].image} />
             </TouchableOpacity>
         )
     }
@@ -71,9 +77,7 @@ class SettingsView extends Component {
         style={style.flatList}
         renderItem={({item}) =>
           // <SettingsRow item={item} onToggleSwitch={() => onToggleSwitch(item.key)}/>
-          <IconCircle item={item} onToggleSwitch={
-            () => onToggleSwitch(item.key)
-          }/>
+          <IconCircle type={item.key}/>
         }
       />
     );
