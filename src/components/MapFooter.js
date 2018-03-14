@@ -22,10 +22,13 @@ export default class MapFooter extends Component {
     }
 
     render() {
+        console.log(this.props.markers, this.props.filters);
+        let markers = getVisibleMarkers(this.props.markers, this.props.filters);
+        console.log(markers);
         return (
             <View style={styles.container}>
                 <FlatList
-                    data={getVisibleMarkers(this.props.markers, this.props.filters)}
+                    data={markers}
                     renderItem={({item}) => this.renderItem(item)}
                     ListHeaderComponent={<View style={{alignItems: 'center'}}><Entypo name='minus' size={20}/></View>}
                 />
@@ -36,12 +39,10 @@ export default class MapFooter extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: .6,
+        flex: 1,
         flexDirection: 'row',
         backgroundColor: 'white',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
+        alignItems: 'center'
     },
     listItem: {
         flexDirection: 'row',

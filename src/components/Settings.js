@@ -47,16 +47,14 @@ const SettingsRow = ({item, onToggleSwitch}) => (
 );
 */
 class IconCircle extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { toggledOn: true }
-    }
     _onPressButton = () => {
         this.setState({ toggledOn: !this.state.toggledOn });
         this.props.toggle();
     }
     render() {
         const { item, onToggleSwitch } = this.props;
+        console.log("Item in Icon: ");
+        console.log(item);
         let toggledColor = item.value == true ? icons[item.key].color : 'pink'
         let toggledBorder = item.value == true ? 3 : 1.5
         return (
@@ -72,14 +70,15 @@ class IconCircle extends Component {
 class SettingsView extends Component {
   render() {
     const { settings, onToggleSwitch } = this.props;
+        console.log("Settings in Settings: ");
+        console.log(settings);
     return (
       <FlatList
         data={settings}
         numColumns={2}
         style={style.flatList}
         renderItem={({item}) =>
-          // <SettingsRow item={item} onToggleSwitch={() => onToggleSwitch(item.key)}/>
-          <IconCircle type={item.key} toggle={() => onToggleSwitch(item.key)}/>
+          <IconCircle item={item} onToggleSwitch={() => onToggleSwitch(item.key)}/>
         }
       />
     );

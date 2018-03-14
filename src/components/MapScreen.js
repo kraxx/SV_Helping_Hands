@@ -37,7 +37,9 @@ class MapScreenView extends Component {
                 <NavButton route={this.props.navigation} icon={'view-list'} dest={'List'}/>
                 <NavButton route={this.props.navigation} icon={'filter-list'} dest={'Settings'}/>
             </View>
-            <MapFooter />
+            <View style={{position: 'absolute', bottom: 0, height: 175, left: 0, right: 0}}>
+                <MapFooter markers={markers} filters={filters}/>
+            </View>
         </View>
     );
   }
