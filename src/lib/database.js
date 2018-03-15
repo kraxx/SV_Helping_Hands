@@ -7,7 +7,7 @@ function compile() {
     let obj = food;
     obj = obj.concat(health);
     obj = obj.concat(services);
-    obj = obj.concat(services);
+    obj = obj.concat(shelter);
     return obj;
 }
 const data = compile();
