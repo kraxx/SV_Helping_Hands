@@ -1,0 +1,133 @@
+[
+  {
+    "_id": "sh1",
+    "picture": "http://placehold.it/32x32",
+    "company": "HomeFirst",
+    "phone": "+1 (408) 510-7600",
+    "address": "507 Valley Way, Milpitas, California, 95035",
+    "latitude": 37.427502,
+    "longitude": -121.915047,
+    "tag": "shelter",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        09,
+        17
+      ],
+      [
+        09,
+        17
+      ],
+      [
+        09,
+        17
+      ],
+      [
+        09,
+        17
+      ],
+      [
+        09,
+        17
+      ],
+      [
+        00,
+        00
+      ]
+    ],
+    "description": [
+      "HomeFirst™ is a leading provider of services, shelter, and housing opportunities to the homeless and those at risk of homelessness in Santa Clara County. We serve more than 4,000 adults, veterans, families, and youth each year at seven locations including our Boccardo Reception Center, which is the county’s largest homeless services center. We are relentlessly focused on helping people in need find and keep permanent housing. The following services are provided: Boccardo Reception Center (BRC), Sobrato Family Living Center, Cold Weather Shelter Program"
+    ]
+  },
+
+  {
+    "_id": "sh2",
+    "picture": "http://placehold.it/32x32",
+    "company": "Graduate House Shelter",
+    "phone": "+1 (650) 685-5880",
+    "address": "813 Alice Avenue, Mountain View, California, 94041",
+    "latitude": 37.380189,
+    "longitude": -122.067033,
+    "tag": "shelter",
+    "hours": [
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ]
+    ],
+    "description": [
+      "Interim housing and services for single men and women.Graduate House provides Permanent Supportive Housing for formerly homeless individuals. The program has the capacity to house up to 8 men and women. For more information contact InnVision Property Management "
+    ]
+  },
+
+  {
+    "_id": "sh3",
+    "picture": "http://placehold.it/32x32",
+    "company": "The Opportunity Center",
+    "phone": "+1 (650) 299-8700",
+    "address": "33 Encina Ave, Palo Alto, California, 94301",
+    "latitude": 37.439253,
+    "longitude": -122.160990,
+    "tag": "shelter",
+    "hours": [
+            [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ],
+      [
+        00,
+        24
+      ]
+    ],
+    "description": [
+      "Community Working Group’s flagship project, the Opportunity Center of the Midpeninsula, is an affordable apartment complex and service center for homeless and extremely low-income families and individuals. The Opportunity Center is a positive, caring environment, where promoting the innate dignity of every person is the highest concern."
+    ]
+  }
+]

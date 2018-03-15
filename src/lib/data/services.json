@@ -1,0 +1,89 @@
+[
+  {
+    "_id": "sv1",
+    "picture": "http://placehold.it/32x32",
+    "company": "Hope's Corner",
+    "phone": "+1 (650) 254-1450",
+    "address": "748 Mercy St, Mountain View, California, 94041",
+    "latitude": 37.389886,
+    "longitude": -122.080547,
+    "tag": "services",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        08,
+        13
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        17,
+        24
+      ]
+    ],
+    "description": [
+      "Hope’s Corner offers free showers to unhoused people on Saturday (7-12 p.m.) and Thursday (8 a.m. - 1 p.m.)."
+    ]
+  },
+
+  {
+    "_id": "sv2",
+    "picture": "http://placehold.it/32x32",
+    "company": "CSA (Community Services Agency)",
+    "phone": "+1 (650) 968-0836",
+    "address": "204 Stierlin rd. Mountain View, CA 94043",
+    "latitude": 37.396933,
+    "longitude": -122.078463,
+    "tag": "services",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        09,
+        16
+      ],
+      [
+        09,
+        16
+      ],
+      [
+        09,
+        16
+      ],
+      [
+        09,
+        16
+      ],
+      [
+        09,
+        16
+      ],
+      [
+        00,
+        00
+      ]
+    ],
+    "description": [
+      "For 60 years, Community Services Agency has been providing vital social services for residents of Mountain View, Los Altos and Los Altos Hills. We understand that hardship can come at any time and knows no age limit. We provide a safety net so independence and self-sufficiency can be restored and maintained. Our clients may be a young, working poor family or an elderly person looking for companionship."
+    ]
+  }
+]

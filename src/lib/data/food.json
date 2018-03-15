@@ -1,0 +1,177 @@
+[
+  {
+    "_id": "f1",
+    "picture": "http://placehold.it/32x32",
+    "company": "Hope's Corner",
+    "phone": "+1 (650) 254-1450",
+    "address": "748 Mercy St, Mountain View, California, 94041",
+    "latitude": 37.389886,
+    "longitude": -122.080547,
+    "tag": "food",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        08,
+        10
+      ]
+    ],
+    "description": [
+      "Hope’s Corner serves a free breakfast and bag lunch every Saturday (8-10 a.m.) to hungry people at the corner of Hope and Mercy Streets in Mountain View."
+    ]
+  },
+
+  {
+    "_id": "f2",
+    "picture": "http://placehold.it/32x32",
+    "company": "Loaves and Fishes - Eeastside Community Center",
+    "phone": "+1 (408) 922-9085",
+    "address": "2150 Alum Rock Ave, San Jose, California, 95116",
+    "latitude": 37.356529,
+    "longitude": -121.846965,
+    "tag": "food",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        00,
+        00
+      ]
+    ],
+    "description": [
+      "At Loaves & Fishes Family Kitchen we fight hunger in the California Bay Area by providing food security to those who need it most. Hot meals are provided five days out of the week."
+    ]
+  },
+
+    {
+    "_id": "f3",
+    "picture": "http://placehold.it/32x32",
+    "company": "Loaves and Fishes - Goodwill Industries",
+    "phone": "+1 (408) 922-9085",
+    "address": "1080 North 7th St, San Jose, California, 95112",
+    "latitude": 37.359807,
+    "longitude": -121.898061,
+    "tag": "food",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        00,
+        00
+      ]
+    ],
+    "description": [
+      "At Loaves & Fishes Family Kitchen we fight hunger in the California Bay Area by providing food security to those who need it most. Hot meals are provided five days out of the week."
+    ]
+  },
+
+  {
+    "_id": "f4",
+    "picture": "http://placehold.it/32x32",
+    "company": "Grocery Program",
+    "phone": "+1 (408) 922-9085",
+    "address": "2980 Senter Road, San Jose, California, 95111",
+    "latitude": 37.296122,
+    "longitude": -121.835651,
+    "tag": "food",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        10,
+        12
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ],
+      [
+        00,
+        00
+      ]
+    ],
+    "description": [
+      "In partnership with Second Harvest Bank and volunteers from across the Bay Area, Loaves & Fishes also provides grocery bags to about 165 families each month. The bags are filled with nutritionally balanced items such as rice, beans, peanut butter, tuna fish, eggs, milk and fresh fruits and vegetables. The Grocery Bag Program takes place on the 3rd Wednesday of every month. Program hours are 10am-12pm."
+    ]
+  }
+]

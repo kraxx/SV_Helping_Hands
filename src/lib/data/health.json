@@ -1,0 +1,45 @@
+[
+  {
+    "_id": "h1",
+    "picture": "http://placehold.it/32x32",
+    "company": "RotaCare Clinic",
+    "phone": "+1 (650) 988-8202",
+    "address": "2400 Grant Road, Mountain View, California, 94040",
+    "latitude": 37.370645,
+    "longitude": -122.078685,
+    "tag": "health",
+    "hours": [
+      [
+        00,
+        00
+      ],
+      [
+        12,
+        19
+      ],
+      [
+        09,
+        17
+      ],
+      [
+        09,
+        20
+      ],
+      [
+        12,
+        20
+      ],
+      [
+        09,
+        17
+      ],
+      [
+        00,
+        00
+      ]
+    ],
+    "description": [
+      "The RotaCare Clinic of Mountain View exists to provide medical services to those with the most need and least access to care. The Clinic has been in operation since 1996. The clinic currently provides over 16,000 services to 2,600 patients annually. Immunization services provide over 10,000 services to nearly 3,500 community members annually.\nMedical services are provided by a dedicated volunteer staff who donates their valuable time and expertise to treat the under-served in our community."
+    ]
+  }
+]
