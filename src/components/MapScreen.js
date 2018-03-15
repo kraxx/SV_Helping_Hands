@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { View, StyleSheet, Text } from 'react-native';
 import { MapView } from 'expo';
 import { connect } from 'react-redux';
-import SlidingUpPanel from 'rn-sliding-up-panel';
 import MapMarkers from './MapMarkers';
 import SearchBox from  './SearchBox';
 import MapFooter from './MapFooter';
