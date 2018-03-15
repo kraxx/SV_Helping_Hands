@@ -19,8 +19,8 @@ export default class MapMarkers extends Component {
             <MapView
                 style={{ flex: 1 }}
                 initialRegion={{
-                    latitude: 37.548271,
-                    longitude: -121.988571,
+                    latitude: 37.389264,
+                    longitude: -122.082944,
                     latitudeDelta: .0912312,
                     longitudeDelta: .04
                 }}
