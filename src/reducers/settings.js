@@ -5,7 +5,7 @@ const initialState = {
             value: true,
         },
         {
-            key: "clothing",
+            key: "services",
             value: true,
         },
         {

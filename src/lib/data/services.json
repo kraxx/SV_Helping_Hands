@@ -10,39 +10,36 @@
     "tag": "services",
     "hours": [
       [
-        00,
-        00
+        0,
+        0
       ],
       [
-        00,
-        00
+        0,
+        0
       ],
       [
-        00,
-        00
+        0,
+        0
       ],
       [
-        00,
-        00
+        0,
+        0
       ],
       [
-        08,
+        8,
         13
       ],
       [
-        00,
-        00
+        0,
+        0
       ],
       [
         17,
         24
       ]
     ],
-    "description": [
-      "Hope’s Corner offers free showers to unhoused people on Saturday (7-12 p.m.) and Thursday (8 a.m. - 1 p.m.)."
-    ]
+    "description": "Hope’s Corner offers free showers to unhoused people on Saturday (7-12 p.m.) and Thursday (8 a.m. - 1 p.m.)."
   },
-
   {
     "_id": "sv2",
     "picture": "http://placehold.it/32x32",
@@ -54,36 +51,34 @@
     "tag": "services",
     "hours": [
       [
-        00,
-        00
+        0,
+        0
       ],
       [
-        09,
+        9,
         16
       ],
       [
-        09,
+        9,
         16
       ],
       [
-        09,
+        9,
         16
       ],
       [
-        09,
+        9,
         16
       ],
       [
-        09,
+        9,
         16
       ],
       [
-        00,
-        00
+        0,
+        0
       ]
     ],
-    "description": [
-      "For 60 years, Community Services Agency has been providing vital social services for residents of Mountain View, Los Altos and Los Altos Hills. We understand that hardship can come at any time and knows no age limit. We provide a safety net so independence and self-sufficiency can be restored and maintained. Our clients may be a young, working poor family or an elderly person looking for companionship."
-    ]
-  }
+    "description": "For 60 years, Community Services Agency has been providing vital social services for residents of Mountain View, Los Altos and Los Altos Hills. We understand that hardship can come at any time and knows no age limit. We provide a safety net so independence and self-sufficiency can be restored and maintained. Our clients may be a young, working poor family or an elderly person looking for companionship."
+}
 ]

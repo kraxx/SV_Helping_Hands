@@ -1,4 +1,4 @@
-const data = require('../lib/datastore');
+import data from '../lib/database';
 
 const initialState = {
     markers: data,

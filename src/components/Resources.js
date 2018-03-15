@@ -8,7 +8,7 @@ const icons = {
         image: foodIcon,
         color: 'green',
     },
-    clothing: {
+    services: {
         image: clothingIcon,
         color: 'orange',
     },
