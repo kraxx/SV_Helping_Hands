@@ -30,7 +30,6 @@ export default class MapFooter extends Component {
                 <FlatList
                     data={markers}
                     renderItem={({item}) => this.renderItem(item)}
-                    ListHeaderComponent={<View style={{alignItems: 'center'}}><Entypo name='minus' size={20}/></View>}
                 />
             </View>
         );

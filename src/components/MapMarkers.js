@@ -28,9 +28,9 @@ export default class MapMarkers extends Component {
                 {this.props.markers.map((marker, index) =>
                     <MapView.Marker
                         key={index}
-                        coordinate={marker.latlng}
-                        title={marker.title}
-                        description={marker.description}
+                        coordinate={{latitude: marker.latitude, longitude: marker.longitude}}
+                        title={marker.company}
+                        description={marker.description[0]}
                     />
                 )}
                 <MapView.Marker

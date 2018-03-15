@@ -1,19 +1,19 @@
 const initialState = {
     selected: [
         {
-            key: "Food",
+            key: "food",
             value: true,
         },
         {
-            key: "Clothing",
+            key: "clothing",
             value: true,
         },
         {
-            key: "Health",
+            key: "health",
             value: true,
         },
         {
-            key: "Shelter",
+            key: "shelter",
             value: true,
         },
     ],
