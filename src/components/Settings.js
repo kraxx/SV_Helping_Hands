@@ -55,7 +55,7 @@ class IconCircle extends Component {
         const { item, onToggleSwitch } = this.props;
         console.log("Item in Icon: ");
         console.log(item);
-        let toggledColor = item.value == true ? icons[item.key].color : 'pink'
+        let toggledColor = item.value == true ? icons[item.key].color : 'grey'
         let toggledBorder = item.value == true ? 3 : 1.5
         return (
             <TouchableOpacity 
