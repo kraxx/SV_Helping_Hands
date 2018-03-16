@@ -6,7 +6,7 @@ export default class IconSquare extends Component {
     render() {
         return(
             <View style={{backgroundColor: icons[this.props.tag].color, alignItems: 'center', justifyContent: 'center', flex: 1}}>
-                <Image source={icons[this.props.tag].image} />
+                <Image style={{tintColor: '#37474f'}} source={icons[this.props.tag].image} />
             </View>
         )
     }

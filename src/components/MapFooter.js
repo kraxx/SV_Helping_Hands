@@ -19,9 +19,10 @@ class Footer extends Component {
 
     renderItem(item) {
         return (
-            <ListItem key={item._id} item={item} callback={() => {
-                    this.props.onRegionChange({latitude: item.latitude, longitude: item.longitude});
-                }}
+            <ListItem
+                key={item._id}
+                item={item} 
+                callback={() => this.props.onRegionChange({latitude: item.latitude, longitude: item.longitude})}
             />
         );
     }
@@ -33,6 +34,7 @@ class Footer extends Component {
                 <FlatList
                     data={markers}
                     renderItem={({item}) => this.renderItem(item)}
+                    keyExtractor={(item, _id) => _id}
                 />
             </View>
         );

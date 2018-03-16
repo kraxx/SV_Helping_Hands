@@ -30,7 +30,7 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         flex: 1,
         borderWidth: 0.5,
-        borderColor: 'black',
+        borderColor: '#b0bec5',
     },
     listIcon: {
         margin: 6,
@@ -46,13 +46,10 @@ const style = StyleSheet.create({
         fontWeight: 'bold',
     },
     listTextAdrs: {
-        fontSize: 12,
         fontWeight: '100',
         flexWrap: 'wrap',
     },
     listTextHours: {
-        fontSize: 12,
-        fontWeight: '100',
         flexWrap: 'wrap',
     }
 })

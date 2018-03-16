@@ -15,7 +15,6 @@ class MapScreenView extends Component {
             lat: 0,
             lon: 0,
         }
-        this.onCallback = this.onCallback.bind(this);
     }
 
     componentWillMount() {
@@ -27,11 +26,6 @@ class MapScreenView extends Component {
         });
     }
 
-    onCallback(e) {
-        console.log('hello');
-        console.log(e);
-    }
-
     render() {
     const { markers, filters, region } = this.props;
     return (
@@ -40,10 +34,10 @@ class MapScreenView extends Component {
             <View style={styles.topBar}>
                 <SearchBox />
                 <NavButton route={this.props.navigation} icon={'view-list'} dest={'List'}/>
-                <NavButton route={this.props.navigation} icon={'filter-list'} dest={'Settings'}/>
+                <NavButton route={this.props.navigation} icon={'filter-list'} dest={'Filters'}/>
             </View>
             <View style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: 175}}>
-                <MapFooter markers={markers} filters={filters} callback={() => this.onCallback()}/>
+                <MapFooter markers={markers} filters={filters}/>
             </View>
         </View>
     );
