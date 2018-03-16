@@ -39,6 +39,7 @@ class MapListView extends Component {
                         renderItem={
                             ({item}) => <ListItem key={item._id} item={item} callback={() => this.setModalVisible(true, item)}/>
                         }
+                        keyExtractor={(item, _id) => _id}
                     />
                 </View>
         );
