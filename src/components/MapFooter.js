@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
+import { connect } from 'react-redux';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
-import { ListItem } from './MapList';
+import ListItem from './ListItem';
 import getVisibleMarkers from '../lib/getMarkers';
+import { regionChange } from '../actions';
 
-export default class MapFooter extends Component {
+class Footer extends Component {
     constructor() {
         super();
         this.state = {}
@@ -17,14 +19,15 @@ export default class MapFooter extends Component {
 
     renderItem(item) {
         return (
-            <ListItem item={item} />
+            <ListItem key={item._id} item={item} callback={() => {
+                    this.props.onRegionChange({latitude: item.latitude, longitude: item.longitude});
+                }}
+            />
         );
     }
 
     render() {
-        console.log(this.props.markers, this.props.filters);
         let markers = getVisibleMarkers(this.props.markers, this.props.filters);
-        console.log(markers);
         return (
             <View style={styles.container}>
                 <FlatList
@@ -34,6 +37,20 @@ export default class MapFooter extends Component {
             </View>
         );
     }
+}
+
+const mapStateToProps = state => ({
+    markers: state.homeApp.markers,
+    region: state.homeApp.region,
+    filters: state.settings.selected
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onRegionChange: region => {
+      dispatch(regionChange(region))
+    }
+  }
 }
 
 const styles = StyleSheet.create({
@@ -48,3 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'gray',
     }
 });
+
+const MapFooter = connect(mapStateToProps, mapDispatchToProps)(Footer);
+
+export default MapFooter;

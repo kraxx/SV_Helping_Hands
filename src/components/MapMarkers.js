@@ -18,12 +18,9 @@ export default class MapMarkers extends Component {
         return(
             <MapView
                 style={{ flex: 1 }}
-                initialRegion={{
-                    latitude: 37.389264,
-                    longitude: -122.082944,
-                    latitudeDelta: .0912312,
-                    longitudeDelta: .04
-                }}
+                showsMyLocationButton={true}
+                showsUserLocation={true}
+                region={this.props.region}
             >
                 {this.props.markers.map((marker, index) =>
                     <MapView.Marker
