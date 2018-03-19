@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {  Component } from 'react';
 import { StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 import Marker from 'react-native-maps';
@@ -13,24 +13,30 @@ const styles = StyleSheet.create({
   },
 });
 
-const MapMarkers = ({markers}) => (
-  <MapView style={styles.map}
-    initialRegion={{
-      latitude: 37.548271,
-      longitude: -121.988571,
-      latitudeDelta: .0912312,
-      longitudeDelta: .04
-    }}
-  >
-    {markers.map((marker, index) =>
-      <MapView.Marker
-        key={index}
-        coordinate={marker.latlng}
-        title={marker.title}
-        description={marker.description}
-      />
-    )}
-  </MapView>
-);
+export default class MapMarkers extends Component {
+    render() {
+        return(
+            <MapView
+                style={{ flex: 1 }}
+                showsUserLocation={true}
+                region={this.props.region}
+            >
+                {this.props.markers.map((marker, index) =>
+                    <MapView.Marker
+                        key={index}
+                        coordinate={{latitude: marker.latitude, longitude: marker.longitude}}
+                        title={marker.company}
+                        description={marker.description[0]}
+                    />
+                )}
+                <MapView.Marker
+                    coordinate={this.props.current}
+                    title={"I am here!"}
+                    description={"Current Location"}
+                    pinColor={'blue'}
+                />
+            </MapView>
+        );
+    }
+}
 
-export default MapMarkers;

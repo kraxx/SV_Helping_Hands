@@ -11,20 +11,3 @@ export default class AppNavigation extends Component {
   }
 }
 
-// class AppNavigation extends Component {
-//   render() {
-//     const { navigationState, dispatch } = this.props;
-//     return (
-//       <Navigator
-//         navigation={addNavigationHelpers({ dispatch, state: navigationState })}
-//       />
-//     );
-//   }
-// }
-// const mapStateToProps = state => {
-//   return {
-//     navigationState: state.navigationReducer.navigationState
-//   };
-// };
-//
-// export default connect(mapStateToProps)(AppNavigation);

@@ -1,24 +1,24 @@
 const foodIcon = require('../images/food-black-64.png')
-const clothingIcon = require('../images/clothing-black-64.png')
+const servicesIcon = require('../images/services.png')
 const healthIcon = require('../images/health-black-64.png')
 const shelterIcon = require('../images/shelter-black-64.png')
 
 const icons = {
-    Food: {
+    food: {
         image: foodIcon,
-        color: 'green',
+        color: '#81c784',
     },
-    Clothing: {
-        image: clothingIcon,
-        color: 'orange',
+    services: {
+        image: servicesIcon,
+        color: '#ce93d8',
     },
-    Health: {
+    health: {
         image: healthIcon,
-        color: 'red',
+        color: '#ff7043',
     },
-    Shelter: {
+    shelter: {
         image: shelterIcon,
-        color: 'blue'
+        color: '#64b5f6'
     }
 }
 

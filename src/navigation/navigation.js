@@ -10,9 +10,18 @@ const Navigator = TabNavigator({
   List: {
     screen: MapList,
   },
-  Settings: {
+  Filters: {
     screen: Settings,
   },
-});
+},
+{
+    tabBarOptions: {
+       style: {
+            marginTop: 24,
+            backgroundColor: '#b71c1c'
+       }
+    }
+}
+);
 
 export default Navigator;

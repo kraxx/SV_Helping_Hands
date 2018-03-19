@@ -1,77 +1,49 @@
-import React, { Component } from "react"
-import { connect } from 'react-redux'
-import { FlatList, View, Text, Image, ScrollView, StyleSheet } from 'react-native'
-import icons from './Resources'
-
-const style = StyleSheet.create({
-    listItemContainer: {
-        flexDirection: 'row',
-        borderWidth: 0.5,
-        borderColor: 'black',
-    },
-    listIcon: {
-        margin: 6,
-    },
-    listText: {
-        paddingTop: 8,
-        paddingLeft: 8,
-        flexDirection: 'column',
-    },
-    listTextTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-})
-
-class IconSquare extends Component {
-    render() {
-        return(
-            <View style={{backgroundColor: icons[this.props.type].color}}>
-                <Image style={style.listIcon} source={icons[this.props.type].image} />
-            </View>
-        )
-    }
-}
-
-const getVisibleMarkers = (markers, filters) => {
-  var filterMarkers = markers
-  for (var filter in filters) {
-    console.log(filters[filter])
-    if (!filters[filter].value) {
-      filterMarkers = filterMarkers.filter(f => f.type == filters[filter].key)
-    }
-  }
-  return filterMarkers
-}
-
-class ListItem extends Component {
-    render() {
-        return(
-            <View style={style.listItemContainer}>
-                <IconSquare type={this.props.item.type} />
-                <View style={style.listText} >
-                    <Text style={style.listTextTitle}>{this.props.item.title}</Text>
-                    <Text>{this.props.item.description}</Text>
-                </View>
-            </View>
-        )
-    }
-}
+import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { FlatList, View, Text, Image, ScrollView, StyleSheet, Modal, TouchableHighlight} from 'react-native';
+import ListItem from './ListItem';
+import IconSquare from './IconSquare';
+import getVisibleMarkers from '../lib/getMarkers';
 
 class MapListView extends Component {
-  render() {
-    const { markers, filters } = this.props
-    return (
-    <View>
-        <FlatList
-            data={getVisibleMarkers(markers, filters)}
-            renderItem={
-                ({item}) => <ListItem item={item} />
-            }
-        />
-    </View>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalVisible: false,
+            active: this.props.markers[0]
+        }
+    }
+
+    setModalVisible(modalVisible, active) {
+        this.setState({modalVisible, active})
+    }
+
+    render() {
+        const { markers, filters } = this.props
+        return (
+                <View>
+                    <Modal
+                        visible={this.state.modalVisible}
+                        onRequestClose={() => console.log('Modal has been closed')}
+                        onShow={() => console.log(this.state.active)}
+                    >
+                        <View>
+                            <Text>Hello!{this.state.active.company}</Text>
+                            <TouchableHighlight onPress={() => this.setModalVisible(!this.state.modalVisible, null)}>
+                                <Text>Hide Modal</Text>
+                            </TouchableHighlight>
+                        </View>
+                    </Modal>
+                    <FlatList
+                        data={getVisibleMarkers(markers, filters)}
+                        renderItem={
+                            ({item}) => <ListItem key={item._id} item={item} callback={() => this.setModalVisible(true, item)}/>
+                        }
+                        keyExtractor={(item, _id) => _id}
+                    />
+                </View>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
