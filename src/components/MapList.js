@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { FlatList, View, Text, Image, ScrollView, StyleSheet, Modal, TouchableHighlight} from 'react-native';
+import { FlatList, View, Text, Image, ScrollView, StyleSheet, Modal, TouchableHighlight } from 'react-native';
 import ListItem from './ListItem';
 import IconSquare from './IconSquare';
 import getVisibleMarkers from '../lib/getMarkers';
+
+const styles = StyleSheet.create({
+    modal: {
+        marginTop: 24,
+        height: '80%',
+        backgroundColor: 'green',
+    }
+})
 
 class MapListView extends Component {
     constructor(props) {
@@ -14,8 +22,8 @@ class MapListView extends Component {
         }
     }
 
-    setModalVisible(modalVisible, active) {
-        this.setState({modalVisible, active})
+    setModalVisible(active) {
+        this.setState({modalVisible: active})
     }
 
     render() {
@@ -27,9 +35,9 @@ class MapListView extends Component {
                         onRequestClose={() => console.log('Modal has been closed')}
                         onShow={() => console.log(this.state.active)}
                     >
-                        <View>
+                        <View style={styles.modal}>
                             <Text>Hello!{this.state.active.company}</Text>
-                            <TouchableHighlight onPress={() => this.setModalVisible(!this.state.modalVisible, null)}>
+                            <TouchableHighlight onPress={() => this.setModalVisible(!this.state.modalVisible)}>
                                 <Text>Hide Modal</Text>
                             </TouchableHighlight>
                         </View>

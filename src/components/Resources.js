@@ -1,5 +1,5 @@
 const foodIcon = require('../images/food-black-64.png')
-const servicesIcon = require('../images/services.png')
+const servicesIcon = require('../images/help-circle-64.png')
 const healthIcon = require('../images/health-black-64.png')
 const shelterIcon = require('../images/shelter-black-64.png')
 
