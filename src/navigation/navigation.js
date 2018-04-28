@@ -10,9 +10,9 @@ const Navigator = TabNavigator({
   List: {
     screen: MapList,
   },
-  // Filters: {
-  //   screen: Settings,
-  // },
+  Filters: {
+    screen: Settings,
+  },
 },
 {
     tabBarOptions: {

@@ -19,7 +19,7 @@ const icons = {
     shelter: {
         image: shelterIcon,
         color: '#64b5f6'
-    }
+    },
 }
 
 export default icons

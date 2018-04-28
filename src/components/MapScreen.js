@@ -7,7 +7,10 @@ import SearchBox from  './SearchBox';
 import MapFooter from './MapFooter';
 import NavButton from './MapNavButton';
 import Settings from './Settings';
+import icons from './Resources';
 import getVisibleMarkers from '../lib/getMarkers';
+
+const filterCogImg = require('../images/settings-nut-black-64.png');
 
 class MapScreenView extends Component {
     constructor() {
@@ -21,10 +24,10 @@ class MapScreenView extends Component {
 
     componentWillMount() {
         navigator.geolocation.getCurrentPosition((curr_pos) => {
-            console.log(curr_pos);
-            console.log(curr_pos.coords.longitude);
+            // console.log(curr_pos);
+            // console.log(curr_pos.coords.longitude);
             this.setState({lat: curr_pos.coords.latitude, lon: curr_pos.coords.longitude});
-            console.log(this.state);
+            // console.log(this.state);
         });
     }    
 
@@ -33,33 +36,35 @@ class MapScreenView extends Component {
     }
 
     render() {
-    const { markers, filters, region } = this.props;
-    return (
-        <View style={{ flex: 1 }}>
-            <MapMarkers markers={getVisibleMarkers(markers, filters)} current={{latitude: this.state.lat, longitude: this.state.lon}} region={region} />
-            <View style={styles.topBar}>
-                <SearchBox />
-                <NavButton route={this.props.navigation} icon={'view-list'} dest={'List'}/>
-                <TouchableOpacity
-                    onPress={() => this.setModalVisible(!this.state.modalVisible)}
-                >
-                    <Text> XDDDD </Text>
-                </TouchableOpacity>
-            </View>
-            <View style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: 175}}>
-                <MapFooter markers={markers} filters={filters}/>
-            </View>
-            <Modal
-                visible={this.state.modalVisible}
-                transparent={true}
-                onRequestClose={() => console.log('Modal has been closed')}
-                animationType='slide'
-            >
-                <View style={styles.modal}>
-                    <Settings />
+        const { markers, filters, region } = this.props;
+        return (
+            <View style={styles.mapScreen}>
+                <MapMarkers markers={getVisibleMarkers(markers, filters)} current={{latitude: this.state.lat, longitude: this.state.lon}} region={region} />
+                <View style={styles.topBar}>
+                    <SearchBox />
+                    <TouchableOpacity
+                        onPress={() => this.setModalVisible(!this.state.modalVisible)}
+                    >
+                        <Image source={filterCogImg} style={styles.filterCog}/>
+                    </TouchableOpacity>
                 </View>
-            </Modal>
-        </View>
+                <View style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: 175}}>
+                    <MapFooter markers={markers} filters={filters}/>
+                </View>
+                <Modal
+                    visible={this.state.modalVisible}
+                    transparent={true}
+                    onRequestClose={() => {
+                        {/*console.log('Modal has been closed')*/}
+                        this.setModalVisible(!this.state.modalVisible)
+                    }}
+                    animationType='slide'
+                >
+                    <View style={styles.modal}>
+                        <Settings triggerClose={() => this.setModalVisible(!this.state.modalVisible)} />
+                    </View>
+                </Modal>
+            </View>
     );
   }
 }
@@ -72,6 +77,15 @@ const mapStateToProps = state => ({
 });
 
 const styles = StyleSheet.create({
+    mapScreen: {
+        marginTop: 24,
+        flex: 1,
+    },
+    filterCog: {
+        marginLeft: 5,
+        height: 30,
+        width: 30,
+    },
     topBar: {
         flexDirection: 'row',
         justifyContent: 'center',
@@ -82,8 +96,8 @@ const styles = StyleSheet.create({
     },
     modal: {
         // marginTop: 24,
-        height: '70%',
-        backgroundColor: 'rgba(0,0,0,.5)',
+        height: '100%',
+        backgroundColor: 'rgba(51,51,77,.85)',
     }
 });
 
