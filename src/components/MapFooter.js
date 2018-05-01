@@ -7,14 +7,18 @@ import getVisibleMarkers from '../lib/getMarkers';
 import { regionChange } from '../actions';
 
 class Footer extends Component {
-    constructor() {
-        super();
-        this.state = {}
-        this.getLoc = this.getLoc.bind(this);
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.changeLoc = this.changeLoc.bind(this);
         this.renderItem = this.renderItem.bind(this);
     }
-    getLoc() {
-        navigator.geolocation.getCurrentPosition((loc) => {console.log(loc)});
+
+    changeLoc(lat, lon) {
+        this.props.onRegionChange({
+            latitude: lat,
+            longitude: lon
+        })
     }
 
     renderItem(item) {
@@ -22,11 +26,10 @@ class Footer extends Component {
             <ListItem
                 key={item._id}
                 item={item} 
-                callback={() => this.props.onRegionChange({latitude: item.latitude, longitude: item.longitude})}
+                callback={() => this.changeLoc(item.latitude, item.longitude)}
             />
         );
     }
-
     render() {
         let markers = getVisibleMarkers(this.props.markers, this.props.filters);
         return (
@@ -48,11 +51,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => {
-  return {
-    onRegionChange: region => {
-      dispatch(regionChange(region))
+    return {
+        onRegionChange: region => {
+            dispatch(regionChange(region))
+        }
     }
-  }
 }
 
 const styles = StyleSheet.create({

@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import IconSquare from './IconSquare';
 
 export default class ListItem extends Component {
     render() {
         return(
-            <View style={style.listItemContainer}>
-                <TouchableHighlight style={{flex: .25}} onPress={() => this.props.callback()}>
-                    <IconSquare tag={this.props.item.tag} />
-                </TouchableHighlight>
-                <View style={style.listText}>
-                    <View>
-                        <Text style={style.listTextTitle}>{this.props.item.company}</Text>
+            <TouchableOpacity onPress={() => this.props.callback()}>
+                <View style={styles.listItemContainer}>
+                    <View  style={{flex: .25}}>
+                        <IconSquare tag={this.props.item.tag} />
                     </View>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={style.listTextAdrs}>{this.props.item.address}</Text>
-                    </View>
-                    <View style={style.listTextHours}>
-                        <Text>{this.props.item.hours[0][0]} - {this.props.item.hours[0][1]}</Text>
+                    <View style={styles.listText}>
+                        <View>
+                            <Text style={styles.listTextTitle}>{this.props.item.company}</Text>
+                        </View>
+                        <View>
+                            <Text style={styles.listTextAdrs}>{this.props.item.address}</Text>
+                        </View>
+                        <View style={styles.listTextHours}>
+                            <Text>{this.props.item.hours[0][0]} - {this.props.item.hours[0][1]}</Text>
+                        </View>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     listItemContainer: {
         flexDirection: 'row',
         flex: 1,
-        borderWidth: 0.5,
+        borderWidth: 0.8,
         borderColor: '#b0bec5',
     },
     listIcon: {

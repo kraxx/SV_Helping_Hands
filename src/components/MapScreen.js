@@ -42,22 +42,17 @@ class MapScreenView extends Component {
                 <MapMarkers markers={getVisibleMarkers(markers, filters)} current={{latitude: this.state.lat, longitude: this.state.lon}} region={region} />
                 <View style={styles.topBar}>
                     <SearchBox />
-                    <TouchableOpacity
-                        onPress={() => this.setModalVisible(!this.state.modalVisible)}
-                    >
+                    <TouchableOpacity onPress={() => this.setModalVisible(!this.state.modalVisible)} >
                         <Image source={filterCogImg} style={styles.filterCog}/>
                     </TouchableOpacity>
                 </View>
-                <View style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: 175}}>
+                <View style={styles.mapFooter}>
                     <MapFooter markers={markers} filters={filters}/>
                 </View>
                 <Modal
                     visible={this.state.modalVisible}
                     transparent={true}
-                    onRequestClose={() => {
-                        {/*console.log('Modal has been closed')*/}
-                        this.setModalVisible(!this.state.modalVisible)
-                    }}
+                    onRequestClose={() => {this.setModalVisible(!this.state.modalVisible)}}
                     animationType='slide'
                 >
                     <View style={styles.modal}>
@@ -65,10 +60,9 @@ class MapScreenView extends Component {
                     </View>
                 </Modal>
             </View>
-    );
+    )
   }
 }
-                // <NavButton route={this.props.navigation} icon={'filter-list'} dest={'Filters'}/>
 
 const mapStateToProps = state => ({
   markers: state.homeApp.markers,
@@ -80,6 +74,13 @@ const styles = StyleSheet.create({
     mapScreen: {
         marginTop: 24,
         flex: 1,
+    },
+    mapFooter: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 175,
     },
     filterCog: {
         marginLeft: 5,
