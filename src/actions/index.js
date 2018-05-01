@@ -4,3 +4,10 @@ export const toggleSwitch = id => {
         id
     }
 }
+
+export const regionChange = region => {
+    return {
+        type: 'REGION_CHANGE',
+        region
+    }
+}
