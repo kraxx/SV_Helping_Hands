@@ -11,6 +11,11 @@ const compile = () => {
     return obj;
 }
 
-const data = compile();
+export const data = compile();
 
-export default data;
+export const initialRegion = {
+    latitude: 37.511360,
+    longitude: -122.110966,
+    latitudeDelta: 0.0912312,
+    longitudeDelta: 0.04,
+}

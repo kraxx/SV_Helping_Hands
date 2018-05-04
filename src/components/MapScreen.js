@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, StyleSheet, Text, Image, Modal, TouchableOpacity, Button } from 'react-native';
 import { MapView } from 'expo';
 import { connect } from 'react-redux';
-import MapMarkers from './MapMarkers';
+import MapWrapper from './MapWrapper';
 import SearchBox from  './SearchBox';
 import MapFooter from './MapFooter';
 import FilterSettings from './FilterSettings';
@@ -14,35 +14,10 @@ class MapScreenView extends Component {
     constructor() {
         super();
         this.state = {
-            lat: 0,
-            lon: 0,
             modalVisible: false,
         }
     }
 
-    componentWillMount() {
-        console.log("will mount")
-        navigator.geolocation.getCurrentPosition(
-            (curr_pos) => {
-                console.log("Got geo coordinates!")
-                this.setState({
-                    lat: curr_pos.coords.latitude,
-                    lon: curr_pos.coords.longitude
-                })
-            },
-            (err) => {
-                console.log("Failed to get geo coordinates; ", err)
-            }
-        )
-    }
-
-    componentDidMount() {
-        console.log("Did mount")
-    }
-
-    componentWillUnmount() {
-        console.log("Unmounting")
-    }
     setModalVisible(active) {
         this.setState({modalVisible: active})
     }
@@ -55,7 +30,7 @@ class MapScreenView extends Component {
         const { markers, filters, region } = this.props;
         return (
             <View style={styles.mapScreen}>
-                <MapMarkers
+                <MapWrapper
                     markers={getVisibleMarkers(markers, filters)}
                     current={{latitude: this.state.lat, longitude: this.state.lon}}
                     region={region}
