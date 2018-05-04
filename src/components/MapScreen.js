@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Text, Image, Modal, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Image, Modal, TouchableOpacity, Button } from 'react-native';
 import { MapView } from 'expo';
 import { connect } from 'react-redux';
 import MapMarkers from './MapMarkers';
 import SearchBox from  './SearchBox';
 import MapFooter from './MapFooter';
-import NavButton from './MapNavButton';
-import Settings from './Settings';
-import icons from './Resources';
+import FilterSettings from './FilterSettings';
 import getVisibleMarkers from '../lib/getMarkers';
 
 const filterCogImg = require('../images/settings-nut-black-64.png');
@@ -23,23 +21,46 @@ class MapScreenView extends Component {
     }
 
     componentWillMount() {
-        navigator.geolocation.getCurrentPosition((curr_pos) => {
-            // console.log(curr_pos);
-            // console.log(curr_pos.coords.longitude);
-            this.setState({lat: curr_pos.coords.latitude, lon: curr_pos.coords.longitude});
-            // console.log(this.state);
-        });
-    }    
+        console.log("will mount")
+        navigator.geolocation.getCurrentPosition(
+            (curr_pos) => {
+                console.log("Got geo coordinates!")
+                this.setState({
+                    lat: curr_pos.coords.latitude,
+                    lon: curr_pos.coords.longitude
+                })
+            },
+            (err) => {
+                console.log("Failed to get geo coordinates; ", err)
+            }
+        )
+    }
 
+    componentDidMount() {
+        console.log("Did mount")
+    }
+
+    componentWillUnmount() {
+        console.log("Unmounting")
+    }
     setModalVisible(active) {
         this.setState({modalVisible: active})
+    }
+
+    moveMap = (latLng) => {
+        this.mapMarker.moveMap(latLng)
     }
 
     render() {
         const { markers, filters, region } = this.props;
         return (
             <View style={styles.mapScreen}>
-                <MapMarkers markers={getVisibleMarkers(markers, filters)} current={{latitude: this.state.lat, longitude: this.state.lon}} region={region} />
+                <MapMarkers
+                    markers={getVisibleMarkers(markers, filters)}
+                    current={{latitude: this.state.lat, longitude: this.state.lon}}
+                    region={region}
+                    ref={component => this.mapMarker = component}
+                />
                 <View style={styles.topBar}>
                     <SearchBox />
                     <TouchableOpacity onPress={() => this.setModalVisible(!this.state.modalVisible)} >
@@ -47,7 +68,7 @@ class MapScreenView extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.mapFooter}>
-                    <MapFooter markers={markers} filters={filters}/>
+                    <MapFooter markers={markers} filters={filters} moveMap={(latLng) => this.moveMap(latLng)}/>
                 </View>
                 <Modal
                     visible={this.state.modalVisible}
@@ -56,19 +77,13 @@ class MapScreenView extends Component {
                     animationType='slide'
                 >
                     <View style={styles.modal}>
-                        <Settings triggerClose={() => this.setModalVisible(!this.state.modalVisible)} />
+                        <FilterSettings triggerClose={() => this.setModalVisible(!this.state.modalVisible)} />
                     </View>
                 </Modal>
             </View>
     )
   }
 }
-
-const mapStateToProps = state => ({
-  markers: state.homeApp.markers,
-  region: state.homeApp.region,
-  filters: state.settings.selected
-});
 
 const styles = StyleSheet.create({
     mapScreen: {
@@ -96,10 +111,15 @@ const styles = StyleSheet.create({
         left: 10,
     },
     modal: {
-        // marginTop: 24,
         height: '100%',
         backgroundColor: 'rgba(51,51,77,.85)',
     }
+});
+
+const mapStateToProps = state => ({
+  markers: state.homeApp.markers,
+  region: state.homeApp.region,
+  filters: state.filterSettings.selected
 });
 
 const MapScreen = connect(mapStateToProps)(MapScreenView);

@@ -1,42 +1,38 @@
-import React, {  Component } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
-import Marker from 'react-native-maps';
-
-const styles = StyleSheet.create({
-  map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-});
+import icons from './Resources';
 
 export default class MapMarkers extends Component {
+
+    moveMap = (latLng) => {
+        this.mapView.animateToCoordinate(latLng, 800)
+    }
+
     render() {
         return(
             <MapView
                 style={{ flex: 1 }}
                 showsUserLocation={true}
-                region={this.props.region}
+                initialRegion={this.props.region}
+                ref ={component => this.mapView = component}
             >
                 {this.props.markers.map((marker, index) =>
                     <MapView.Marker
                         key={index}
                         coordinate={{latitude: marker.latitude, longitude: marker.longitude}}
                         title={marker.company}
-                        description={marker.description[0]}
+                        description={marker.tag}
+                        pinColor={icons[marker.tag].color}
                     />
                 )}
                 <MapView.Marker
                     coordinate={this.props.current}
                     title={"I am here!"}
                     description={"Current Location"}
-                    pinColor={'blue'}
+                    pinColor={'#ffe20c'}
                 />
             </MapView>
         );
     }
 }
-

@@ -19,19 +19,24 @@ const initialState = {
     ],
 }
 
-function settings(state = initialState, action) {
+const filterSettings = (state = initialState, action) => {
     switch (action.type) {
         case 'TOGGLE_SWITCH':
-            var newState = {}
-            newState.selected = state.selected.map(setting => 
-                (setting.key === action.id)
-                ? {...setting, value: !setting.value}
-                : setting
-            )
+            let newState = {}
+            newState.selected = state.selected.map(setting => {
+                if (setting.key === action.id) {
+                    return {
+                        ...setting,
+                        value: !setting.value
+                    }
+                } else {
+                    return setting
+                }
+            })
             return newState
         default:
             return state
     }
 }
 
-export default settings
+export default filterSettings

@@ -5,7 +5,7 @@ import IconSquare from './IconSquare';
 export default class ListItem extends Component {
     render() {
         return(
-            <TouchableOpacity onPress={() => this.props.callback()}>
+            <TouchableOpacity onPress={() => {this.props.callback()}}>
                 <View style={styles.listItemContainer}>
                     <View  style={{flex: .25}}>
                         <IconSquare tag={this.props.item.tag} />

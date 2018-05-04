@@ -10,23 +10,23 @@ class Footer extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.changeLoc = this.changeLoc.bind(this);
-        this.renderItem = this.renderItem.bind(this);
     }
 
-    changeLoc(lat, lon) {
-        this.props.onRegionChange({
-            latitude: lat,
-            longitude: lon
-        })
+    changeLoc = (latLng) => {
+        this.props.moveMap(latLng)
     }
 
-    renderItem(item) {
+    renderItem = (item) => {
         return (
             <ListItem
                 key={item._id}
                 item={item} 
-                callback={() => this.changeLoc(item.latitude, item.longitude)}
+                callback={() => {
+                    this.changeLoc({
+                        latitude: item.latitude,
+                        longitude: item.longitude
+                    })
+                }}
             />
         );
     }
@@ -44,20 +44,6 @@ class Footer extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    markers: state.homeApp.markers,
-    region: state.homeApp.region,
-    filters: state.settings.selected
-});
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onRegionChange: region => {
-            dispatch(regionChange(region))
-        }
-    }
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -71,6 +57,18 @@ const styles = StyleSheet.create({
     }
 });
 
+const mapStateToProps = state => ({
+    markers: state.homeApp.markers,
+    region: state.homeApp.region,
+    filters: state.filterSettings.selected
+});
+const mapDispatchToProps = dispatch => {
+    return {
+        onRegionChange: region => {
+            dispatch(regionChange(region))
+        }
+    }
+}
 const MapFooter = connect(mapStateToProps, mapDispatchToProps)(Footer);
 
 export default MapFooter;

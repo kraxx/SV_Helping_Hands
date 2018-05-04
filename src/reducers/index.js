@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
 import homeApp from './homeApp';
-import settings from './settings';
-import navigationReducer from './navigationReducer';
+import filterSettings from './filterSettings';
 
 const AppReducer = combineReducers({
   homeApp,
-  navigationReducer,
-  settings
+  filterSettings
 });
 
 export default AppReducer
