@@ -2,8 +2,32 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import IconSquare from './IconSquare';
 
+const getDayInfo = () => {
+    let day = new Date()
+    return {
+        dayOfWeek: day.getDay(),
+        hour: day.getHours()
+    }
+}
+
+const today = getDayInfo()
+
 export default class ListItem extends Component {
+
+    formatTime = (open, close) => {
+        if (open === 0 || close === 0) {
+            return <Text style={styles.openToday}>{"Open all day"}</Text>
+        } else if (today.hour < open || today.hour >= close) {
+            return <Text style={styles.closedToday}>{"Closed today"}</Text>
+        }
+        return <Text style={styles.openToday}>{"Open today from: "}{open}{" to "}{close}</Text>
+    }
+
     render() {
+        let time = this.formatTime(
+            this.props.item.hours[today.dayOfWeek][0],
+            this.props.item.hours[today.dayOfWeek][1]
+        )
         return(
             <TouchableOpacity onPress={() => {this.props.callback()}}>
                 <View style={styles.listItemContainer}>
@@ -18,7 +42,7 @@ export default class ListItem extends Component {
                             <Text style={styles.listTextAdrs}>{this.props.item.address}</Text>
                         </View>
                         <View style={styles.listTextHours}>
-                            <Text>{"Hours: "}{this.props.item.hours[0][0]} - {this.props.item.hours[0][1]}</Text>
+                            {time}
                         </View>
                     </View>
                 </View>
@@ -53,5 +77,11 @@ const styles = StyleSheet.create({
     },
     listTextHours: {
         flexWrap: 'wrap',
-    }
+    },
+    openToday: {
+        color: 'green'
+    },
+    closedToday: {
+        color: 'red'
+    },
 })
