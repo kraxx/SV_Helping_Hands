@@ -18,7 +18,7 @@ export default class ListItem extends Component {
                             <Text style={styles.listTextAdrs}>{this.props.item.address}</Text>
                         </View>
                         <View style={styles.listTextHours}>
-                            <Text>{this.props.item.hours[0][0]} - {this.props.item.hours[0][1]}</Text>
+                            <Text>{"Hours: "}{this.props.item.hours[0][0]} - {this.props.item.hours[0][1]}</Text>
                         </View>
                     </View>
                 </View>

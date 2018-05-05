@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, View, Text, FlatList, TouchableOpacity, PanResponder } from 'react-native';
+import { Dimensions, StyleSheet, Image, View, Text, FlatList, TouchableOpacity, PanResponder } from 'react-native';
 import { connect } from 'react-redux';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
 import ListItem from './ListItem';
 import getVisibleMarkers from '../lib/getMarkers';
 import { regionChange } from '../actions';
 
+const draggableIcon = require('../images/draggable-arrows-black-64.png');
+
 const defaultHeight = Dimensions.get('window').height - 150;
+const midScreentHeight = Dimensions.get('window').height / 3;
 
 class Footer extends Component {
     constructor(props) {
@@ -14,7 +17,6 @@ class Footer extends Component {
         this.state = {
             height: defaultHeight,
         };
-
     }
 
     componentWillMount() {
@@ -27,6 +29,8 @@ class Footer extends Component {
     }
 
     changeLoc = (latLng) => {
+        if (this.state.height < midScreentHeight)
+        this.setState({height: defaultHeight})
         this.props.moveMap(latLng)
     }
 
@@ -47,17 +51,19 @@ class Footer extends Component {
     render() {
         let markers = getVisibleMarkers(this.props.markers, this.props.filters);
         let height = this.state.height
-        console.log(height)
-        if (height > defaultHeight)
-            height = defaultHeight
+        if (height < 50)
+            height = 50
+        else if (height > defaultHeight + 100)
+            height = defaultHeight + 100
         return (
             <View style={[styles.container, {top: height}]} >
                 <View
                     {...this.panResponder.panHandlers}
                     style={styles.sliderBar}
                 >
-                    <Text style={{textAlign: 'center'}}>DRAG ME</Text>
+                    <Image style={styles.draggableIcon} source={draggableIcon} />
                 </View>
+                <View style={styles.borderCheat} />
                 <FlatList
                     style={styles.flatList}
                     data={markers}
@@ -78,15 +84,37 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
+        backgroundColor: 'rgba(0,0,0,0)',
+    },
+    borderCheat: {
+        height: 2,
+        width: '100%',
+        backgroundColor: 'grey',
     },
     sliderBar: {
-        height: 20,
-        width: '100%',
-        backgroundColor: 'red',
+        marginTop: -25,
+        marginBottom: 10,
+        position: 'relative',
+        zIndex: 3,
+        height: 50,
+        width: 50,
+        bottom: -25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: 100,
+        borderWidth: 2,
+        borderColor: 'grey',
+    },
+    draggableIcon: {
+        resizeMode: 'center'
     },
     flatList: {
         flexDirection: 'column',
+        zIndex: 2,
         width: '100%',
+        // borderTopWidth: 2,
+        // borderTopColor: 'grey',
         backgroundColor: 'white',
     },
 });
