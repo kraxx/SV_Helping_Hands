@@ -14,10 +14,10 @@ const today = getDayInfo()
 
 export default class ListItem extends Component {
 
-    formatTime = (open, close) => {
+    formatTime = (open, close, currentHour) => {
         if (open === 0 || close === 0) {
             return <Text style={styles.openToday}>{"Open all day"}</Text>
-        } else if (today.hour < open || today.hour >= close) {
+        } else if (currentHour < open || currentHour >= close) {
             return <Text style={styles.closedToday}>{"Closed today"}</Text>
         }
         return <Text style={styles.openToday}>{"Open today from: "}{open}{" to "}{close}</Text>
@@ -26,7 +26,8 @@ export default class ListItem extends Component {
     render() {
         let time = this.formatTime(
             this.props.item.hours[today.dayOfWeek][0],
-            this.props.item.hours[today.dayOfWeek][1]
+            this.props.item.hours[today.dayOfWeek][1],
+            today.hour
         )
         return(
             <TouchableOpacity onPress={() => {this.props.callback()}}>
