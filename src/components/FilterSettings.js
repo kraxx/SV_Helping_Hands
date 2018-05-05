@@ -6,6 +6,13 @@ import icons from "./Resources";
 
 const backArrow = require('../images/left-arrow-white-64.png');
 
+const categories = {
+    food: "Food",
+    services: "Services",
+    health: "Medical",
+    shelter: "Shelter",
+}
+
 class IconCircle extends Component {
     _onPressButton = () => {
         this.setState({ toggledOn: !this.state.toggledOn });
@@ -16,11 +23,14 @@ class IconCircle extends Component {
         let toggledBorder = item.value == true ? 3 : 1.5;
         let toggledBorderColor = item.value == true ? 'white' : 'black';
         return (
-            <TouchableOpacity 
-            style={[styles.gridItem, { backgroundColor: toggledColor, borderWidth: toggledBorder, borderColor: toggledBorderColor }]}
-            onPress={onToggleSwitch}>
-                <Image style={styles.listIcon} source={icons[item.key].image} />
-            </TouchableOpacity>
+            <View>
+                <Text style={styles.category}>{categories[item.key]}</Text>
+                <TouchableOpacity 
+                style={[styles.gridItem, { backgroundColor: toggledColor, borderWidth: toggledBorder, borderColor: toggledBorderColor }]}
+                onPress={onToggleSwitch}>
+                    <Image style={styles.listIcon} source={icons[item.key].image} />
+                </TouchableOpacity>
+            </View>
         )
     }
 }
@@ -71,6 +81,11 @@ const styles = StyleSheet.create({
     },
     filterTitle: {
         fontSize: 46,
+        textAlign: 'center',
+        color: 'white',
+    },
+    category: {
+        fontSize: 30,
         textAlign: 'center',
         color: 'white',
     },
