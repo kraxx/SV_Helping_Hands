@@ -8,7 +8,7 @@ import { regionChange } from '../actions';
 
 const draggableIcon = require('../images/draggable-arrows-black-64.png');
 
-const defaultHeight = Dimensions.get('window').height - 150;
+const defaultHeight = Dimensions.get('window').height - 200;
 const midScreentHeight = Dimensions.get('window').height / 3;
 
 class Footer extends Component {
@@ -51,19 +51,19 @@ class Footer extends Component {
     render() {
         let markers = getVisibleMarkers(this.props.markers, this.props.filters);
         let height = this.state.height
-        if (height < 50)
-            height = 50
+        if (height < 25)
+            height = 25
         else if (height > defaultHeight + 100)
             height = defaultHeight + 100
         return (
             <View style={[styles.container, {top: height}]} >
                 <View
                     {...this.panResponder.panHandlers}
-                    style={styles.sliderBar}
+                    style={styles.sliderBtn}
                 >
                     <Image style={styles.draggableIcon} source={draggableIcon} />
                 </View>
-                <View style={styles.borderCheat} />
+                <View style={styles.sliderBar} />
                 <FlatList
                     style={styles.flatList}
                     data={markers}
@@ -86,14 +86,7 @@ const styles = StyleSheet.create({
         right: 0,
         backgroundColor: 'rgba(0,0,0,0)',
     },
-    borderCheat: {
-        height: 2,
-        width: '100%',
-        backgroundColor: 'grey',
-    },
-    sliderBar: {
-        marginTop: -25,
-        marginBottom: 10,
+    sliderBtn: {
         position: 'relative',
         zIndex: 3,
         height: 50,
@@ -106,6 +99,11 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: 'grey',
     },
+    sliderBar: {
+        height: 25,
+        width: '100%',
+        backgroundColor: 'rgba(65,65,65,0.5)',
+    },
     draggableIcon: {
         resizeMode: 'center'
     },
@@ -113,8 +111,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         zIndex: 2,
         width: '100%',
-        // borderTopWidth: 2,
-        // borderTopColor: 'grey',
         backgroundColor: 'white',
     },
 });
