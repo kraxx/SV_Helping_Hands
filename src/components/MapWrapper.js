@@ -4,7 +4,7 @@ import MapView from 'react-native-maps';
 import icons from './Resources';
 import { initialRegion } from '../lib/database'
 
-const animationTime = 800;
+const ANIMATION_TIME = 800;
 
 export default class MapWrapper extends Component {
 
@@ -13,7 +13,6 @@ export default class MapWrapper extends Component {
         this.state = {
             region: initialRegion
         }
-        console.log(initialRegion)
     }
 
     getCurrentLocation = () => {
@@ -45,7 +44,7 @@ export default class MapWrapper extends Component {
     }
 
     moveMap = (latLng) => {
-        this.mapView.animateToCoordinate(latLng, animationTime)
+        this.mapView.animateToCoordinate(latLng, ANIMATION_TIME)
     }
 
     render() {
@@ -56,14 +55,18 @@ export default class MapWrapper extends Component {
                 region={this.state.region}
                 ref ={component => this.mapView = component}
             >
-                {this.props.markers.map((marker, index) =>
-                    <MapView.Marker
-                        key={index}
-                        coordinate={{latitude: marker.latitude, longitude: marker.longitude}}
-                        title={marker.company}
-                        description={marker.tag}
-                        pinColor={icons[marker.tag].color}
-                    />
+                {this.props.markers.map(
+                    (marker, index) =>
+                        <MapView.Marker
+                            key={index}
+                            coordinate={{
+                                latitude: marker.latitude,
+                                longitude: marker.longitude
+                            }}
+                            title={marker.company}
+                            description={marker.tag}
+                            pinColor={icons[marker.tag].color}
+                        />
                 )}
                 <MapView.Marker
                     coordinate={this.state.region}

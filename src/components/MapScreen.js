@@ -42,18 +42,14 @@ class MapScreenView extends Component {
                         <Image source={filterCogImg} style={styles.filterCog}/>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.mapFooter}>
-                    <MapFooter markers={markers} filters={filters} moveMap={(latLng) => this.moveMap(latLng)}/>
-                </View>
+                <MapFooter markers={markers} filters={filters} moveMap={(latLng) => this.moveMap(latLng)}/>
                 <Modal
                     visible={this.state.modalVisible}
                     transparent={true}
                     onRequestClose={() => {this.setModalVisible(!this.state.modalVisible)}}
                     animationType='slide'
                 >
-                    <View style={styles.modal}>
-                        <FilterSettings triggerClose={() => this.setModalVisible(!this.state.modalVisible)} />
-                    </View>
+                    <FilterSettings triggerClose={() => this.setModalVisible(!this.state.modalVisible)} />
                 </Modal>
             </View>
     )
@@ -64,13 +60,6 @@ const styles = StyleSheet.create({
     mapScreen: {
         marginTop: 24,
         flex: 1,
-    },
-    mapFooter: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: 175,
     },
     filterCog: {
         marginLeft: 5,
@@ -85,10 +74,6 @@ const styles = StyleSheet.create({
         top: 10,
         left: 10,
     },
-    modal: {
-        height: '100%',
-        backgroundColor: 'rgba(51,51,77,.85)',
-    }
 });
 
 const mapStateToProps = state => ({

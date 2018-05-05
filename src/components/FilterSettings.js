@@ -29,7 +29,7 @@ class SettingsView extends Component {
     render() {
         const { settings, onToggleSwitch } = this.props;
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={styles.filterTitle}>Filters</Text>
                 <View style={styles.parent}>
                     <FlatList
@@ -50,6 +50,10 @@ class SettingsView extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        height: '100%',
+        backgroundColor: 'rgba(51,51,77,.85)',
+    },
     parent: {
         margin: 'auto',
         alignItems: 'center',
