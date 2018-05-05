@@ -1,16 +1,11 @@
-import data from '../lib/database';
+import { data, initialRegion } from '../lib/database';
 
 const initialState = {
     markers: data,
-    region: {
-        latitude: 37.389264,
-        longitude: -122.082944,
-        latitudeDelta: .0912312,
-        longitudeDelta: .04
-    }
+    region: initialRegion,
 }
 
-function homeApp(state = initialState, action) {
+const homeApp = (state = initialState, action) => {
   switch (action.type) {
     case 'REGION_CHANGE': {
         return {
@@ -18,8 +13,8 @@ function homeApp(state = initialState, action) {
             region: {
                 latitude: action.region.latitude,
                 longitude: action.region.longitude,
-                latitudeDelta: .0912312,
-                longitudeDelta: .04
+                latitudeDelta: state.region.latitudeDelta,
+                longitudeDelta: state.region.longitudeDelta,
             }
         }
     }

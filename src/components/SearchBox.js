@@ -6,7 +6,7 @@ export default class SearchBox extends Component {
     constructor() {
         super();
         this.state = {
-            text: '',
+            text: 'Currently inactive',
         }
     }
     render() {
@@ -16,7 +16,7 @@ export default class SearchBox extends Component {
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => this.setState({text})}
-                    value={this.state.value}
+                    value={this.state.text}
                     underlineColorAndroid={'transparent'}
                 />
             </View>
