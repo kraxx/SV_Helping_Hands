@@ -27,13 +27,16 @@ class MapScreenView extends Component {
     }
 
     render() {
-        const { markers, filters, region } = this.props;
+        let visibleMarkers = getVisibleMarkers(
+            this.props.markers,
+            this.props.categoryFilters,
+            this.props.searchFilters
+        )
         return (
             <View style={styles.mapScreen}>
                 <MapWrapper
-                    markers={getVisibleMarkers(markers, filters)}
+                    markers={visibleMarkers}
                     current={{latitude: this.state.lat, longitude: this.state.lon}}
-                    region={region}
                     ref={component => this.mapMarker = component}
                 />
                 <View style={styles.topBar}>
@@ -42,7 +45,7 @@ class MapScreenView extends Component {
                         <Image source={filterCogImg} style={styles.filterCog}/>
                     </TouchableOpacity>
                 </View>
-                <MapFooter markers={markers} filters={filters} moveMap={(latLng) => this.moveMap(latLng)}/>
+                <MapFooter markers={visibleMarkers} moveMap={(latLng) => this.moveMap(latLng)}/>
                 <Modal
                     visible={this.state.modalVisible}
                     transparent={true}
@@ -79,7 +82,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   markers: state.homeApp.markers,
   region: state.homeApp.region,
-  filters: state.filterSettings.selected
+  categoryFilters: state.categoryFilter.selected,
+  searchFilters: state.searchFilter
 });
 
 const MapScreen = connect(mapStateToProps)(MapScreenView);

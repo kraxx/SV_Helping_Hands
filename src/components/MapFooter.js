@@ -49,7 +49,7 @@ class Footer extends Component {
         );
     }
     render() {
-        let markers = getVisibleMarkers(this.props.markers, this.props.filters);
+        let markers = this.props.markers
         let height = this.state.height
         if (height < 25)
             height = 25
@@ -116,9 +116,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    markers: state.homeApp.markers,
     region: state.homeApp.region,
-    filters: state.filterSettings.selected
 });
 const mapDispatchToProps = dispatch => {
     return {

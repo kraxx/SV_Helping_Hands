@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import homeApp from './homeApp';
-import filterSettings from './filterSettings';
+import categoryFilter from './categoryFilter';
+import searchFilter from './searchFilter';
 
 const AppReducer = combineReducers({
   homeApp,
-  filterSettings
+  categoryFilter,
+  searchFilter
 });
 
 export default AppReducer

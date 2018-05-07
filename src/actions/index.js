@@ -11,3 +11,16 @@ export const regionChange = region => {
         region
     }
 }
+
+export const searchFilterOn = text => {
+    return {
+        type: 'SEARCH_FILTER_ON',
+        text
+    }
+}
+
+export const searchFilterOff = () => {
+    return {
+        type: 'SEARCH_FILTER_OFF'
+    }
+}

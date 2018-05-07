@@ -19,7 +19,7 @@ const initialState = {
     ],
 }
 
-const filterSettings = (state = initialState, action) => {
+const categoryFilter = (state = initialState, action) => {
     switch (action.type) {
         case 'TOGGLE_SWITCH':
             let newState = {}
@@ -39,4 +39,4 @@ const filterSettings = (state = initialState, action) => {
     }
 }
 
-export default filterSettings
+export default categoryFilter
