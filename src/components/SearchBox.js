@@ -12,12 +12,12 @@ class SearchBoxView extends Component {
         }
     }
 
-    onChangeText = (text, props) => {
+    onChangeText = (text, dispatcher) => {
         this.setState({text: text});
         if (text === '') {
-            props.searchFilterOff()
+            dispatcher.searchFilterOff()
         } else {
-            props.searchFilterOn(text)
+            dispatcher.searchFilterOn(text)
         }
     }
 

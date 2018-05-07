@@ -38,6 +38,10 @@ export default class MapWrapper extends Component {
                             longitudeDelta: this.state.region.longitudeDelta,
                         }
                     })
+                    this.mapView.animateToCoordinate({
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    }, 0)
                 }
             }
         )
@@ -52,7 +56,7 @@ export default class MapWrapper extends Component {
             <MapView
                 style={{ flex: 1 }}
                 showsUserLocation={true}
-                region={this.state.region}
+                initialRegion={this.state.region}
                 ref ={component => this.mapView = component}
             >
                 {this.props.markers.map(
