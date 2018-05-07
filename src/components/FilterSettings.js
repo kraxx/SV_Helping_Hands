@@ -26,7 +26,14 @@ class IconCircle extends Component {
             <View>
                 <Text style={styles.category}>{categories[item.key]}</Text>
                 <TouchableOpacity 
-                style={[styles.gridItem, { backgroundColor: toggledColor, borderWidth: toggledBorder, borderColor: toggledBorderColor }]}
+                style={[
+                    styles.gridItem,
+                    {
+                        backgroundColor: toggledColor,
+                        borderWidth: toggledBorder,
+                        borderColor: toggledBorderColor
+                    }
+                ]}
                 onPress={onToggleSwitch}>
                     <Image style={styles.listIcon} source={icons[item.key].image} />
                 </TouchableOpacity>
@@ -117,7 +124,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-  settings: state.filterSettings.selected
+  settings: state.categoryFilter.selected
 });
 const mapDispatchToProps = dispatch => {
   return {

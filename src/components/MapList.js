@@ -27,7 +27,7 @@ class MapListView extends Component {
     }
 
     render() {
-        const { markers, filters } = this.props
+        const { markers, categoryFilters, searchFilters } = this.props
         return (
                 <View>
                     <Modal
@@ -43,7 +43,7 @@ class MapListView extends Component {
                         </View>
                     </Modal>
                     <FlatList
-                        data={getVisibleMarkers(markers, filters)}
+                        data={getVisibleMarkers(markers, filters, searchFilters)}
                         renderItem={
                             ({item}) => <ListItem key={item._id} item={item} callback={() => this.setModalVisible(true, item)}/>
                         }
@@ -56,7 +56,8 @@ class MapListView extends Component {
 
 const mapStateToProps = state => ({
   markers: state.homeApp.markers,
-  filters: state.settings.selected
+  categoryFilters: state.categoryFilter.selected,
+  searchFilters: state.searchFilter
 })
 
 const MapList = connect(mapStateToProps)(MapListView)
