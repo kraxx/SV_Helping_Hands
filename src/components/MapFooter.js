@@ -53,8 +53,8 @@ class Footer extends Component {
         let height = this.state.height
         if (height < 25)
             height = 25
-        else if (height > defaultHeight + 100)
-            height = defaultHeight + 100
+        else if (height > defaultHeight + 101)
+            height = defaultHeight + 101
         return (
             <View style={[styles.container, {top: height}]} >
                 <View

@@ -1,5 +1,33 @@
 {
-  "expo": {
-    "sdkVersion": "25.0.0"
-  }
+	"expo": {
+		"name": "SV Helping Hands",
+		"icon": "src/images/app-icon.png",
+		"version": "1.0.1",
+		"slug": "homeless-slug",
+		"sdkVersion": "25.0.0",
+		"ios": {
+			"bundleIdentifier": "com.rabbitcloud.homelessapp",
+			"icon": "src/images/app-icon.png",
+			"config": {
+				"googleMapsApiKey": "INSERT_API_KEY"
+			}
+		},
+		"android": {
+			"package": "com.rabbitcloud.homelessapp",
+			"config": {
+				"googleMaps": {
+					"apiKey": "INSERT_API_KEY"
+				}
+		  	}
+		},
+		"androidStatusBar": {
+			"barStyle": "light-content",
+			"backgroundColor": "#939393"
+		},
+		"splash": {
+			"backgroundColor": "#FFFFFF",
+			"resizeMode": "contain",
+			"image": "src/images/app-icon.png"
+		}
+	}
 }

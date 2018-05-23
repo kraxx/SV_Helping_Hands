@@ -30,18 +30,6 @@ class MapListView extends Component {
         const { markers, categoryFilters, searchFilters } = this.props
         return (
                 <View>
-                    <Modal
-                        visible={this.state.modalVisible}
-                        onRequestClose={() => console.log('Modal has been closed')}
-                        onShow={() => console.log(this.state.active)}
-                    >
-                        <View style={styles.modal}>
-                            <Text>Hello!{this.state.active.company}</Text>
-                            <TouchableHighlight onPress={() => this.setModalVisible(!this.state.modalVisible)}>
-                                <Text>Hide Modal</Text>
-                            </TouchableHighlight>
-                        </View>
-                    </Modal>
                     <FlatList
                         data={getVisibleMarkers(markers, filters, searchFilters)}
                         renderItem={
