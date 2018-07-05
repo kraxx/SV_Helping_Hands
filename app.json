@@ -9,14 +9,14 @@
 			"bundleIdentifier": "com.rabbitcloud.homelessapp",
 			"icon": "src/images/app-icon.png",
 			"config": {
-				"googleMapsApiKey": "INSERT_API_KEY"
+				"googleMapsApiKey": INSERT_API_KEY
 			}
 		},
 		"android": {
 			"package": "com.rabbitcloud.homelessapp",
 			"config": {
 				"googleMaps": {
-					"apiKey": "INSERT_API_KEY"
+					"apiKey": INSERT_API_KEY
 				}
 		  	}
 		},
